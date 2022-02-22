@@ -6,7 +6,7 @@
 
 - C++代码的基本形式
 
-  ![image-20211218233845722](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211218233845722.png)
+  ![image-20211218233845722](./fig/image-20211218233845722.png)
 
 - 头文件中的防卫式声明：（写的任何一个头文件都应该加这么一个防卫式声明）
 
@@ -20,25 +20,25 @@
 
   第一次引用才定义，定义过则不过重复引用，就不再进入...那一部分了。也可以避免包含头文件时的顺序问题。
 
-  ![image-20211219001419728](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219001419728.png)
+  ![image-20211219001419728](./fig/image-20211219001419728.png)
 
 - 头文件的布局：
 
-  ![image-20211219001945401](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219001945401.png)
+  ![image-20211219001945401](./fig/image-20211219001945401.png)
 
 - class的声明（declaration）
 
-  ![image-20211219162531455](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219162531455.png)
+  ![image-20211219162531455](./fig/image-20211219162531455.png)
 
 class template ( 模板)
 
-![image-20211219002554215](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219002554215.png)
+![image-20211219002554215](./fig/image-20211219002554215.png)
 
 - 内联函数（inline)
 
 函数在class body内完成，运行较快，尽量选择这种方式（除非函数太复杂，没法内联）。但最后是否真的inline是由编译器决定的。
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222172727744.png" alt="image-20211222172727744" style="zoom:50%;" />
+<img src="./fig/image-20211222172727744.png" alt="image-20211222172727744" style="zoom:50%;" />
 
 [C++](http://c.biancheng.net/cplus/) 用 inline 关键字较好地解决了函数调用开销的问题。
 
@@ -61,7 +61,7 @@ inline int Max (int a, int b)
 
 函数名称必须和class的名称相同，且没有返回类型
 
-![image-20211219180803933](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219180803933.png)
+![image-20211219180803933](./fig/image-20211219180803933.png)
 
 **不带指针的class基本都不用写析构函数**
 
@@ -69,19 +69,19 @@ inline int Max (int a, int b)
 
 重载经常会被用在构造函数，但如果已经有包含默认实参的构造函数，再写以下构造函数，就冲突了：
 
-![image-20211219181553089](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219181553089.png)
+![image-20211219181553089](./fig/image-20211219181553089.png)
 
-![image-20211219181808976](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219181808976.png)
+![image-20211219181808976](./fig/image-20211219181808976.png)
 
 把构造函数放在private里面，经常被用于单例模式，不让外界来构造对象
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211219182354582.png" alt="image-20211219182354582" style="zoom: 50%;" />
+<img src="./fig/image-20211219182354582.png" alt="image-20211219182354582" style="zoom: 50%;" />
 
 - const 常量成员函数
 
   用 const 修饰函数也就是标识函数不会修改数据。如果函数不会改变里面的数据内容，一定要加const。
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211220173926149.png" alt="image-20211220173926149" style="zoom:50%;" />
+<img src="./fig/image-20211220173926149.png" alt="image-20211220173926149" style="zoom:50%;" />
 
 ### 创建对象的两种方式（自己整理的）
 
@@ -105,11 +105,11 @@ inline int Max (int a, int b)
 
   自由取得friend的private成员，并且不破坏封装性
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222161856020.png" alt="image-20211222161856020" style="zoom:50%;" />
+<img src="./fig/image-20211222161856020.png" alt="image-20211222161856020" style="zoom:50%;" />
 
 相同class的各个objects互为友元
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222162206803.png" alt="image-20211222162206803" style="zoom: 50%;" />
+<img src="./fig/image-20211222162206803.png" alt="image-20211222162206803" style="zoom: 50%;" />
 
 ### 在写一个class时要注意的事项：
 
@@ -135,29 +135,29 @@ complex (double r = 0, double i = 0): re (r), im (i) { }
 
 **所有的成员函数一定都带有一个隐藏的参数this。**谁调用这个函数，谁就是this
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222174154036.png" alt="image-20211222174154036" style="zoom:50%;" />
+<img src="./fig/image-20211222174154036.png" alt="image-20211222174154036" style="zoom:50%;" />
 
 传递者无需知道接收者是以reference还是value（object）形式接收的。这也是为什么上面 return *ths返回的是一个object，但返回值类型却是complex&
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222225407787.png" alt="image-20211222225407787" style="zoom:50%;" />
+<img src="./fig/image-20211222225407787.png" alt="image-20211222225407787" style="zoom:50%;" />
 
 但是返回类型不能写成void，如果是void三个连加的就不能用了
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222225746975.png" alt="image-20211222225746975" style="zoom:50%;" />
+<img src="./fig/image-20211222225746975.png" alt="image-20211222225746975" style="zoom:50%;" />
 
 2、非成员函数-操作符重载
 
 这种属于全局函数
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222230709414.png" alt="image-20211222230709414" style="zoom:50%;" />
+<img src="./fig/image-20211222230709414.png" alt="image-20211222230709414" style="zoom:50%;" />
 
 创建临时对象  typename();
 
 注意：临时对象运行到代码的下一行这个对象就不见了
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222231228870.png" alt="image-20211222231228870" style="zoom:50%;" />
+<img src="./fig/image-20211222231228870.png" alt="image-20211222231228870" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211222233007633.png" alt="image-20211222233007633" style="zoom:50%;" />
+<img src="./fig/image-20211222233007633.png" alt="image-20211222233007633" style="zoom:50%;" />
 
 C++中“.”和“->”的使用区别：
 
@@ -273,7 +273,7 @@ int main()
 
 ## VS安装位置
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211223223545682.png" alt="image-20211223223545682" style="zoom:50%;" />
+<img src="./fig/image-20211223223545682.png" alt="image-20211223223545682" style="zoom:50%;" />
 
 
 
@@ -430,7 +430,7 @@ Value of var[2] = 200
 
 4、指向指针的指针（多级间接寻址）
 
-![image-20211221213508373](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20211221213508373.png)
+![image-20211221213508373](./fig/image-20211221213508373.png)
 
 例如，下面声明了一个指向 int 类型指针的指针：
 
@@ -677,9 +677,9 @@ int& func() {
 
 对于字符串的设计，一般就是里面包含一个指针，当需要内存的时候才创建具体的字符串内容--->动态分配内存-->对象死亡之前要进行析构，把动态分配的内存释放掉
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220118161058782.png" alt="image-20220118161058782" style="zoom: 33%;" />
+<img src="./fig/image-20220118161058782.png" alt="image-20220118161058782" style="zoom: 33%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220118175759598.png" alt="image-20220118175759598" style="zoom:33%;" />
+<img src="./fig/image-20220118175759598.png" alt="image-20220118175759598" style="zoom:33%;" />
 
 也就是说具体的字符串内容是不属于对象本身的。
 
@@ -698,11 +698,11 @@ delete后面为什么加了[]？
 
 因为m_data是数组，如果是单个的，就不用加[]
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220118183142786.png" alt="image-20220118183142786" style="zoom: 33%;" />
+<img src="./fig/image-20220118183142786.png" alt="image-20220118183142786" style="zoom: 33%;" />
 
 深拷贝则需要写拷贝构造函数
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220118190653815.png" alt="image-20220118190653815" style="zoom:33%;" />
+<img src="./fig/image-20220118190653815.png" alt="image-20220118190653815" style="zoom:33%;" />
 
 - 拷贝赋值函数则分三步：把左侧的清空，左侧腾出一个和右侧一样大小的空间，把右侧的东西拷贝到左侧
 
@@ -710,17 +710,17 @@ delete后面为什么加了[]？
 
 ## 堆、栈与内存管理
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220122231625459.png" alt="image-20220122231625459" style="zoom:50%;" />
+<img src="./fig/image-20220122231625459.png" alt="image-20220122231625459" style="zoom:50%;" />
 
 在函数function body内声明的变量，内存来自于stack
 heap是操作系统提供的一块global内存空间，可通过new进行动态分配内存
 stack object在作用域结束后被自动清理（也就是析构函数会自动被调用），而heap object仍然存在
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220122231728501.png" alt="image-20220122231728501" style="zoom: 50%;" />
+<img src="./fig/image-20220122231728501.png" alt="image-20220122231728501" style="zoom: 50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220122231815247.png" alt="image-20220122231815247" style="zoom:50%;" />
+<img src="./fig/image-20220122231815247.png" alt="image-20220122231815247" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220122231923695.png" alt="image-20220122231923695" style="zoom:50%;" />
+<img src="./fig/image-20220122231923695.png" alt="image-20220122231923695" style="zoom:50%;" />
 
 static：
 在变量声明前加static关键字，即为static object，其在作用域结束后仍然存在，直到整个程序结束
@@ -728,7 +728,7 @@ global object也可看作一种static object，作用域是整个程序
 
 注意内存泄露问题：
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220122232049872.png" alt="image-20220122232049872" style="zoom:50%;" />
+<img src="./fig/image-20220122232049872.png" alt="image-20220122232049872" style="zoom:50%;" />
 
 
 new被编译器转化为三个步骤：
@@ -740,14 +740,14 @@ delete为两个步骤:
 1.调用析构函数
 2.调用free释放内存
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220124002216702.png" alt="image-20220124002216702" style="zoom:50%;" />
+<img src="./fig/image-20220124002216702.png" alt="image-20220124002216702" style="zoom:50%;" />
 
 array new 一定要搭配 array delete
 delete 和 delete[] 都会将其所指的内存块全部释放
 区别在于delete[]会对数组内的每一个元素调用析构函数 而delete只对第一个元素调用
 如果数组元素为带有指针成员的类，使用delete会造成memory leak
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220124002420180.png" alt="image-20220124002420180" style="zoom:50%;" />
+<img src="./fig/image-20220124002420180.png" alt="image-20220124002420180" style="zoom:50%;" />
 
 ## String类的代码实现
 
@@ -855,25 +855,25 @@ int main()
 
 成员函数加上static后，就是没有this指针了，如果要处理数据，只能处理静态的数据（因为没有this指针就找不到具体的对象）
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126000438600.png" alt="image-20220126000438600" style="zoom:50%;" />
+<img src="./fig/image-20220126000438600.png" alt="image-20220126000438600" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126000724752.png" alt="image-20220126000724752" style="zoom:50%;" />
+<img src="./fig/image-20220126000724752.png" alt="image-20220126000724752" style="zoom:50%;" />
 
 ### 利用static实现单例模式
 
 1、饿汉式
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126001803370.png" alt="image-20220126001803370" style="zoom:50%;" />
+<img src="./fig/image-20220126001803370.png" alt="image-20220126001803370" style="zoom:50%;" />
 
 2、懒汉式（最优）
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126001906617.png" alt="image-20220126001906617" style="zoom:50%;" />
+<img src="./fig/image-20220126001906617.png" alt="image-20220126001906617" style="zoom:50%;" />
 
 类模板（class template)和函数模板（function template，C++中的算法函数基本都是这种形式，比如min,max）
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126002801917.png" alt="image-20220126002801917" style="zoom:50%;" />
+<img src="./fig/image-20220126002801917.png" alt="image-20220126002801917" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126002905727.png" alt="image-20220126002905727" style="zoom:50%;" />
+<img src="./fig/image-20220126002905727.png" alt="image-20220126002905727" style="zoom:50%;" />
 
 命名空间（namespace)
 
@@ -887,13 +887,13 @@ int main()
 
 queue完全可以由deque的部分功能完成
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126224242033.png" alt="image-20220126224242033" style="zoom:50%;" />
+<img src="./fig/image-20220126224242033.png" alt="image-20220126224242033" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126224312117.png" alt="image-20220126224312117" style="zoom:50%;" />
+<img src="./fig/image-20220126224312117.png" alt="image-20220126224312117" style="zoom:50%;" />
 
 构造由内到外，析构从外到内
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126225104460.png" alt="image-20220126225104460" style="zoom:50%;" />
+<img src="./fig/image-20220126225104460.png" alt="image-20220126225104460" style="zoom:50%;" />
 
 ### 2、**委托（delegation）**
 
@@ -966,17 +966,17 @@ int main(void)
 
 ```
 
-![image-20220126234313889](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126234313889.png)
+![image-20220126234313889](./fig/image-20220126234313889.png)
 
 ### 3、**继承（inheritance）**
 
 表示is a
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220126235131092.png" alt="image-20220126235131092" style="zoom:50%;" />
+<img src="./fig/image-20220126235131092.png" alt="image-20220126235131092" style="zoom:50%;" />
 
 子类的对象里面有父类的成分
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127001016622.png" alt="image-20220127001016622" style="zoom:67%;" />
+<img src="./fig/image-20220127001016622.png" alt="image-20220127001016622" style="zoom:67%;" />
 
 #### 虚函数
 
@@ -988,31 +988,31 @@ int main(void)
 2. 非纯虚函数：有定义，继承它的子类可以override它、
 3. 非虚函数：有定义，且子类不能override它
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127215852988.png" alt="image-20220127215852988" style="zoom:50%;" />
+<img src="./fig/image-20220127215852988.png" alt="image-20220127215852988" style="zoom:50%;" />
 
 #### **<u>Template Method（模板方法）设计模式</u>**
 
 把关键动作延缓到子类去完成——叫做Template Method（模板方法）设计模式。经常会用于框架设计中，先把固定的部分写好，然后把未设定的内容写成虚函数，以后由子类来实现
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127231037141.png" alt="image-20220127231037141" style="zoom:50%;" />
+<img src="./fig/image-20220127231037141.png" alt="image-20220127231037141" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127232151848.png" alt="image-20220127232151848" style="zoom:50%;" />
+<img src="./fig/image-20220127232151848.png" alt="image-20220127232151848" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127234115342.png" alt="image-20220127234115342" style="zoom:50%;" />
+<img src="./fig/image-20220127234115342.png" alt="image-20220127234115342" style="zoom:50%;" />
 
 
 
 #### **<u>观察者模式(Observer)</u>**
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127234258287.png" alt="image-20220127234258287" style="zoom:50%;" />
+<img src="./fig/image-20220127234258287.png" alt="image-20220127234258287" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220127234322720.png" alt="image-20220127234322720" style="zoom:50%;" />
+<img src="./fig/image-20220127234322720.png" alt="image-20220127234322720" style="zoom:50%;" />
 
 #### **<u>Composite复合物设计模式</u>**
 
 （比如设计文件系统）
 
-![image-20220128212626516](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220128212626516.png)
+![image-20220128212626516](./fig/image-20220128212626516.png)
 
 
 
@@ -1024,22 +1024,22 @@ int main(void)
 
 问题：写父类框架的时候，不知道以后子类的类名。
 
-![image-20220128224904384](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220128224904384.png)
+![image-20220128224904384](./fig/image-20220128224904384.png)
 
 每一个子类都有一个构造函数，构造函数里面把自己add到父类框架里。
 每个子类里面还有一个clone函数，这样父类在得到子类对象后就可以通过这个子类对象调用clone函数，得到子类的若干个副本。
 
 为什么不能把clone设置成static?因为用static需要知道类名，而父类在写的时候不知道子类类名
 
-![image-20220128225009863](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220128225009863.png)
+![image-20220128225009863](./fig/image-20220128225009863.png)
 
 注意，static的数据和函数要在类外进行声明。
 
 全局变量和静态变量初始化时会自动被设置为0。如果们声明全局变量，那么他在运行前会变成全0。意思就是全局变量和静态变量可以不用赋初值，局部变量必须赋初值
 
-![image-20220128225106576](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220128225106576.png)
+![image-20220128225106576](./fig/image-20220128225106576.png)
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220128225134619.png" alt="image-20220128225134619" style="zoom:67%;" />
+<img src="./fig/image-20220128225134619.png" alt="image-20220128225134619" style="zoom:67%;" />
 
 # 侯捷C++面向对象（下）
 
@@ -1047,15 +1047,15 @@ int main(void)
 
 作用：把这种东西转换为别的东西
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201215142760.png" alt="image-20220201215142760" style="zoom:50%;" />
+<img src="./fig/image-20220201215142760.png" alt="image-20220201215142760" style="zoom:50%;" />
 
 ## non-expicit-one-argument ctor
 
 作用：把别的东西转换为这种东西
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201220425547.png" alt="image-20220201220425547" style="zoom:50%;" />
+<img src="./fig/image-20220201220425547.png" alt="image-20220201220425547" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201222042691.png" alt="image-20220201222042691" style="zoom:50%;" />
+<img src="./fig/image-20220201222042691.png" alt="image-20220201222042691" style="zoom:50%;" />
 
  什么是隐式自动转换？
 
@@ -1144,39 +1144,39 @@ explicit关键字只需用于类内的单参数构造函数前面。由于无参
 
 里面一定有一个普通的指针，所以要有*和->的功能
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201223930920.png" alt="image-20220201223930920" style="zoom:50%;" />
+<img src="./fig/image-20220201223930920.png" alt="image-20220201223930920" style="zoom:50%;" />
 
 容器里的迭代器也属于智能指针的范畴
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201224828287.png" alt="image-20220201224828287" style="zoom:50%;" />
+<img src="./fig/image-20220201224828287.png" alt="image-20220201224828287" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201224855952.png" alt="image-20220201224855952" style="zoom:50%;" />
+<img src="./fig/image-20220201224855952.png" alt="image-20220201224855952" style="zoom:50%;" />
 
 ## 让一个类像函数（仿函数，重载()）
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201230337534.png" alt="image-20220201230337534" style="zoom:50%;" />
+<img src="./fig/image-20220201230337534.png" alt="image-20220201230337534" style="zoom:50%;" />
 
 ## namespace经验谈
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220201230818825.png" alt="image-20220201230818825" style="zoom:50%;" />
+<img src="./fig/image-20220201230818825.png" alt="image-20220201230818825" style="zoom:50%;" />
 
 ## 模板
 
 ### 1、类模板
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205142916609.png" alt="image-20220205142916609" style="zoom:50%;" />
+<img src="./fig/image-20220205142916609.png" alt="image-20220205142916609" style="zoom:50%;" />
 
 ### 2、函数模板
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205143044288.png" alt="image-20220205143044288" style="zoom:50%;" />
+<img src="./fig/image-20220205143044288.png" alt="image-20220205143044288" style="zoom:50%;" />
 
 ### 3、成员模板
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205143115380.png" alt="image-20220205143115380" style="zoom:67%;" />
+<img src="./fig/image-20220205143115380.png" alt="image-20220205143115380" style="zoom:67%;" />
 
-![image-20220205143146020](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205143146020.png)
+![image-20220205143146020](./fig/image-20220205143146020.png)
 
-![image-20220205143204194](C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205143204194.png)
+![image-20220205143204194](./fig/image-20220205143204194.png)
 
 ### 模板特化
 
@@ -1184,27 +1184,27 @@ explicit关键字只需用于类内的单参数构造函数前面。由于无参
 
 特化则与泛化相反
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205161842019.png" alt="image-20220205161842019" style="zoom:50%;" />
+<img src="./fig/image-20220205161842019.png" alt="image-20220205161842019" style="zoom:50%;" />
 
 ### 模板偏特化
 
 1、个数上的偏
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205163818367.png" alt="image-20220205163818367" style="zoom: 50%;" />
+<img src="./fig/image-20220205163818367.png" alt="image-20220205163818367" style="zoom: 50%;" />
 
 2、范围上的偏
 
 以前是任意类型，现在缩小类型范围，比如是指向任意类型的指针
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205164226310.png" alt="image-20220205164226310" style="zoom:50%;" />
+<img src="./fig/image-20220205164226310.png" alt="image-20220205164226310" style="zoom:50%;" />
 
 ### 模板模板参数
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205172520732.png" alt="image-20220205172520732" style="zoom:50%;" />
+<img src="./fig/image-20220205172520732.png" alt="image-20220205172520732" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205172539076.png" alt="image-20220205172539076" style="zoom:50%;" />
+<img src="./fig/image-20220205172539076.png" alt="image-20220205172539076" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205172557612.png" alt="image-20220205172557612" style="zoom:50%;" />
+<img src="./fig/image-20220205172557612.png" alt="image-20220205172557612" style="zoom:50%;" />
 
 ## C++11的一些新特性
 
@@ -1212,15 +1212,15 @@ explicit关键字只需用于类内的单参数构造函数前面。由于无参
 
 分为1个+1包
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205181445628.png" alt="image-20220205181445628" style="zoom:50%;" />
+<img src="./fig/image-20220205181445628.png" alt="image-20220205181445628" style="zoom:50%;" />
 
 ### auto
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205182256187.png" alt="image-20220205182256187" style="zoom:50%;" />
+<img src="./fig/image-20220205182256187.png" alt="image-20220205182256187" style="zoom:50%;" />
 
 ### for（遍历容器）
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220205231208737.png" alt="image-20220205231208737" style="zoom: 50%;" />
+<img src="./fig/image-20220205231208737.png" alt="image-20220205231208737" style="zoom: 50%;" />
 
 ## 从内存的角度去看变量，有3种（值，指针、引用）
 
@@ -1230,13 +1230,13 @@ explicit关键字只需用于类内的单参数构造函数前面。由于无参
 
 3、它的引用。引用可以理解成别名，reference在声明的时候一定要有初值，并且以后不能再变了（不能再代表别的东西）。引用的字节大小和它代表的东西的大小一样，地址也相同（但其实这是编译器营造的假象）
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220206001037192.png" alt="image-20220206001037192" style="zoom:50%;" />
+<img src="./fig/image-20220206001037192.png" alt="image-20220206001037192" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220206001138243.png" alt="image-20220206001138243" style="zoom:50%;" />
+<img src="./fig/image-20220206001138243.png" alt="image-20220206001138243" style="zoom:50%;" />
 
 reference就是一种漂亮的point，一般不会用于声明变量，多用于参数的传递和返回值上。
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220206002354583.png" alt="image-20220206002354583" style="zoom:50%;" />
+<img src="./fig/image-20220206002354583.png" alt="image-20220206002354583" style="zoom:50%;" />
 
 ## 对象模型（object model)
 
@@ -1248,7 +1248,7 @@ vptr（虚指针）和 vtbl（虚表，虚表里放的都是指针，指向虚�
 
 子类中有父类的part，继承了父类的数据，以及函数的调用权
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207001154281.png" alt="image-20220207001154281" style="zoom: 50%;" />
+<img src="./fig/image-20220207001154281.png" alt="image-20220207001154281" style="zoom: 50%;" />
 
 
 
@@ -1260,7 +1260,7 @@ C++编译器看到一个函数，有两种考量，是静态绑定还是动态�
 
 这种虚机制，就是多态
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207230554816.png" alt="image-20220207230554816" style="zoom:50%;" />
+<img src="./fig/image-20220207230554816.png" alt="image-20220207230554816" style="zoom:50%;" />
 
 ### this
 
@@ -1268,11 +1268,11 @@ C++编译器看到一个函数，有两种考量，是静态绑定还是动态�
 
 模板方法就用到了动态绑定
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207223433889.png" alt="image-20220207223433889" style="zoom:50%;" />
+<img src="./fig/image-20220207223433889.png" alt="image-20220207223433889" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207230703462.png" alt="image-20220207230703462" style="zoom:50%;" />
+<img src="./fig/image-20220207230703462.png" alt="image-20220207230703462" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207230728102.png" alt="image-20220207230728102" style="zoom:50%;" />
+<img src="./fig/image-20220207230728102.png" alt="image-20220207230728102" style="zoom:50%;" />
 
 ## 谈谈const
 
@@ -1282,43 +1282,43 @@ const放置的位置：
 
 2、放在对象前面——告诉编译器data members不能改变
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207233011022.png" alt="image-20220207233011022" style="zoom: 50%;" />
+<img src="./fig/image-20220207233011022.png" alt="image-20220207233011022" style="zoom: 50%;" />
 
 const对象不能调用non-const函数，会报错
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220207233119981.png" alt="image-20220207233119981" style="zoom:67%;" />
+<img src="./fig/image-20220207233119981.png" alt="image-20220207233119981" style="zoom:67%;" />
 
 ## new和delete的重载
 
 可以重载全局的new和new[]
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208000733392.png" alt="image-20220208000733392" style="zoom:50%;" />
+<img src="./fig/image-20220208000733392.png" alt="image-20220208000733392" style="zoom:50%;" />
 
 也可以重载成员的new和new[]
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208000753308.png" alt="image-20220208000753308" style="zoom:50%;" />
+<img src="./fig/image-20220208000753308.png" alt="image-20220208000753308" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208000808165.png" alt="image-20220208000808165" style="zoom:50%;" />
+<img src="./fig/image-20220208000808165.png" alt="image-20220208000808165" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208000831007.png" alt="image-20220208000831007" style="zoom: 50%;" />
+<img src="./fig/image-20220208000831007.png" alt="image-20220208000831007" style="zoom: 50%;" />
 
 
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208000632473.png" alt="image-20220208000632473" style="zoom:67%;" />
+<img src="./fig/image-20220208000632473.png" alt="image-20220208000632473" style="zoom:67%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208000702097.png" alt="image-20220208000702097" style="zoom:50%;" />
+<img src="./fig/image-20220208000702097.png" alt="image-20220208000702097" style="zoom:50%;" />
 
 也可以重载new()
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208001924057.png" alt="image-20220208001924057" style="zoom:50%;" />
+<img src="./fig/image-20220208001924057.png" alt="image-20220208001924057" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208001951135.png" alt="image-20220208001951135" style="zoom:50%;" />
+<img src="./fig/image-20220208001951135.png" alt="image-20220208001951135" style="zoom:50%;" />
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208002010692.png" alt="image-20220208002010692" style="zoom:50%;" />
+<img src="./fig/image-20220208002010692.png" alt="image-20220208002010692" style="zoom:50%;" />
 
 重载new() 一个标准库的使用例子，为了在构造的时候，在string内容外包上一个计数器reference
 
-<img src="C:\Users\zcc\AppData\Roaming\Typora\typora-user-images\image-20220208002422681.png" alt="image-20220208002422681" style="zoom:50%;" />
+<img src="./fig/image-20220208002422681.png" alt="image-20220208002422681" style="zoom:50%;" />
 
 # STL
 
